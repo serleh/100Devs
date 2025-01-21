@@ -1,0 +1,63 @@
+body{
+    background: lightblue;
+    border: 5px solid green;
+    margin: 40px;
+    padding: 30px;
+   
+}
+
+
+h1,nav{
+    text-align: center;
+    color: white;
+}
+nav > a{
+    color: white;
+}
+
+ span + a{
+    color: green;
+}
+
+img{
+    width: 300px;
+    
+}
+
+section  div {
+    width: 50%;
+    clear: both;
+  
+    
+    
+}
+h3{
+    color: white;
+}
+
+div + div{
+   
+    float: right;
+    clear: both;
+   
+    padding-bottom: 500px;
+    
+}
+
+div img{
+   
+}
+footer{
+    text-align: center;
+    clear: both;
+    
+}
+
+footer a{
+    color: green;
+
+}
+
+p{
+    color: white;
+}
