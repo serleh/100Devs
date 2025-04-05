@@ -1,0 +1,158 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+body{
+  margin: 20px;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+header{
+  height: 100px;
+  background: black;
+  color: #fff;
+}
+header a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+.logo{
+  width: 140px;
+  height: 70px;
+}
+
+.nav-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-items{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.nav-items li{
+  list-style-type: none;
+}
+
+.header + div{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  
+}
+
+.main-first-section{
+  background-image: url('../images/israel-uae-deal.webp');
+  background-size: cover;
+  color: #fff;
+  padding-top: 200px;
+  padding-left: 20px;
+  font-weight: 300;
+  width: 40%;
+  
+}
+
+.main-first-section span,
+.main-second-section span
+{
+  border-left: 2px solid red;
+  padding: 10px;
+}
+
+.main-second-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+
+.main-second-section section{
+  width: 49%;
+  height: 200px;
+  color: #fff;
+  padding-top: 100px;
+  padding-left: 20px;
+}
+
+.second-section-1{
+  background-image: url('../images/american-flag.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% ;
+  
+
+}
+
+.second-section-2{
+  background-image: url('../images/covid.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.second-section-3{
+  background-image: url('../images/productivity.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.second-section-4{
+  background-image: url('../images/AbuDhabi010.avif');
+  background-size: cover;
+  background-position: center;
+}
+
+.bottom-section img{
+  height: 300px;
+  width: 450px;
+
+}
+
+
+.bottom-section{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.bottom-section h2, p{
+  max-width: 400px;
+}
+.bottom-section span{
+  border-left: 2px solid red;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

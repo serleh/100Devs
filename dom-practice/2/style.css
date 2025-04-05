@@ -1,0 +1,9 @@
+
+div{
+    width: 500px;
+    margin: 0 auto;
+    height: 150px;
+    padding-top: 300px;
+    border: 2pc solid red;
+    cursor: pointer;
+}

@@ -1,0 +1,93 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  background-color: lightblue;
+  font: 1.5rem "Nunito", sans-serif;
+  min-height: 100vh;
+  background-image: radial-gradient(whitesmoke, lightblue);
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+main,
+footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background: #1e203b;
+  color: whitesmoke;
+}
+
+header {
+  top: 0;
+}
+footer {
+  bottom: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+nav {
+  background: #fff;
+  color: #000;
+  padding: 0.5rem;
+  border-bottom: 2px solid #000;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+}
+
+footer {
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+/******************************************
+/* SMALL 
+/*******************************************/
+
+@media screen and (min-width: 576px) {
+  body {
+    background: green;
+    background-image: radial-gradient(whitesmoke, green);
+  }
+  nav {
+    display: none;
+  }
+}

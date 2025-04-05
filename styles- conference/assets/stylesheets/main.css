@@ -102,3 +102,26 @@ h1, h3, h4, h5, p {
 .hero {
   padding: 22px 80px 66px 80px;
 }
+
+
+.nav{
+  display: inline-block;
+  margin: 0px 10px;
+  vertical-align: top;
+}
+
+.nav li:last-child{
+  margin-right: 0;
+}
+
+.speaker-info {
+  border: 1px solid #dfe2e5;
+  border-radius: 5px;
+  margin-top: 88px;
+  padding: 22px 0;
+  text-align: center;
+}
+
+.speaker {
+  margin-bottom: 44px;
+}

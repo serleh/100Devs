@@ -1,0 +1,112 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+.top {
+  width: 90%;
+  margin: 0 auto;
+}
+
+body {
+  background: #f5f9fc;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #133439;
+}
+
+.navbar-list {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-list li {
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #687a88;
+  font-size: 18px;
+}
+
+.btn {
+  background: #133439;
+  color: #fff;
+  border: 2px solid;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.navbar .btn {
+  color: #fff;
+  font-size: 15px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  padding: 100px;
+}
+
+.main p,
+h2 {
+  width: 300px;
+}
+.main input {
+  height: 35px;
+  padding: 10px;
+}
+
+.main .btn {
+  padding: 7px 15px;
+  display: inline-block;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+}
+
+.features p {
+  width: 200px;
+}
+.features a {
+  text-decoration: none;
+  color: #133439;
+  font-weight: 800;
+}
+footer {
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header,footer{
+    height: 100px;
+    clear: both;
+    border: 2px solid black;
+}
+
+
+section{
+    border: 2px solid blue;
+    height: 300px;
+    float: left;
+}
+
+.one,.three, .four{
+    width: 20%;
+}
+
+.two{
+    width: 40%;
+}
