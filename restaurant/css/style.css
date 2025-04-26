@@ -223,6 +223,77 @@ footer {
   width: 300px;
   height: 200px;
 }
+
+.gal-01 {
+  background-image: url("../images/FLSAimqXsAAdXn1.jpeg");
+  background-size: cover;
+  height: 200px;
+  width: 300px;
+}
+
+.gal-01 div {
+  text-align: center;
+  padding: 20px;
+}
+
+.gal-01 i {
+  color: orange;
+}
+.gal-01 .price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gal-01 .gallery-btn {
+  border: 2px solid orange;
+  background: orange;
+  color: white;
+  padding: 7px;
+  width: 100px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.gal-01 .orange-text {
+  font: 18px;
+}
+
+.book-table,
+.testimonials-items {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.opening-days {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.opening-bg {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  background-image: url("../images/FLSAiW5WYBAVs37.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.testimonials-items img {
+  border-radius: 50%;
+  border: 2px solid silver;
+  width: 100px;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
