@@ -1,0 +1,63 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+}
+
+footer {
+}
+
+.box {
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(to right, #ff7e57, #feb47b);
+  border-bottom-right-radius: 180px;
+}
+.slanted-wrapper {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  transform: skewY(-5deg); /* this makes the slant */
+  transform-origin: top left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
