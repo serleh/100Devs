@@ -1,19 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-  	<meta charset="utf-8">
-  	<meta name="description" content="Your description goes here">
-  	<meta name="keywords" content="one, two, three">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<title>Blank Template</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Your description goes here" />
+    <meta name="keywords" content="one, two, three" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
+    <title>Home| Saloon</title>
 
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/5046d35d57.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="./images/img1.png" class="logo" alt="" />
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">LookBook</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li><i class="fa-solid fa-store"></i></li>
+        </ul>
+        <p>- Book Online</p>
+      </nav>
+    </header>
+    <main>
+      <section class="top-section">
+        <div class="container top-section-items">
+          <h2>
+            Blonde <br />
+            & Hightlight
+          </h2>
+          <p>Divide your Uniqueness by your hairs in tyle</p>
+          <p class="btn">- our services</p>
+        </div>
+        <section class="visit">
+          <h4>Your first visit?</h4>
+          <h4>
+            <span class="percent">-20%</span> for the first classic hair
+            coloring
+          </h4>
+          <p class="btn">- Book online</p>
+        </section>
+      </section>
+      <section class="services container">
+        <div>
+          <img src="images/img4.png" alt="" />
+          <h3>Expert Beauticians</h3>
+          <p>
+            Beauty Experts Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Obcaecati, asperiores.
+          </p>
+        </div>
+        <div>
+          <img src="images/img5.png" alt="" />
+          <h3>Quality Services</h3>
+          <p>
+            Hair Styling Services Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Error saepe totam vitae sunt asperiores accusamus.
+          </p>
+        </div>
+        <div>
+          <img src="images/img6.png" alt="" />
+          <h3>Beauty products</h3>
+          <p>
+            Hair Color Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio ex nemo ipsum. Similique exercitationem numquam voluptatum
+            eius.
+          </p>
+        </div>
+      </section>
+      <section class="moment">
+        <div class="moment-container">
+          <div>
+            <h3>Make Your <br />Own Momentum</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              accusamus molestiae quibusdam nostrum mollitia? Debitis minima
+              possimus tenetur et voluptatibus accusantium laudantium autem, ut
+              iure magnam velit, rerum, dicta impedit repellendus nesciunt sit
+              itaque eum ullam quis nostrum? Dolore aliquam ut culpa vero
+              accusantium cumque consequatur architecto dolor esse. At quod
+              commodi illum suscipit libero.
+            </p>
+            <p class="btn">- Read more</p>
+          </div>
+          <div class="play-icon">
+            <img src="./images/play.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="services container emp">
+        <div class="team-member">
+          <img src="images/img7.jpg" alt="" />
+          <div class="gal-info">
+            <h4>
+              Alita Williams <br />
+              <span>- colourist</span>
+            </h4>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="./images/img8.jpg" alt="" />
+          <div class="gal-info">
+            <h4>
+              Ayesha Lake <br />
+              <span>- Styler</span>
+            </h4>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="./images/img9.jpg" alt="" />
+          <div class="gal-info">
+            <h4>
+              Smith Boss <br />
+              <span>- Beautician</span>
+            </h4>
+          </div>
+        </div>
+      </section>
+      <section class="offer container">
+        <div>
+          <h3>Colour Day Offer!</h3>
+          <h2>
+            <span class="percent">10%</span>On Haircut <br />
+            And colour highlight
+          </h2>
+          <p class="btn">- Book an Appointment</p>
+        </div>
+      </section>
+      <section class="lookbook container">
+        <div>
+          <h2>Our LookBook</h2>
+        </div>
+      </section>
+      <section class="gallery container">
+        <div>
+          <img src="images/img2.jpg" alt="" />
+          <img src="images/img14.png" alt="" class="first-div-second-image" />
+        </div>
+        <div>
+          <img
+            src="images/img12.png"
+            alt=""
+            class="first-div-second-image no-pad"
+          />
+          <img src="images/img15.png" alt="" />
+        </div>
+        <div>
+          <img src="images/img13.png" alt="" />
+          <img src="images/img16.png" alt="" class="first-div-second-image" />
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
