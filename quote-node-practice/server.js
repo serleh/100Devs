@@ -6,21 +6,22 @@ const connectionString =
 
 MongoClient.connect(connectionString)
   .then((client) => {
+    console.log("Connected to Database 🥳");
     const db = client.db("star-wars-quotes");
     const quotesCollection = db.collection("quotes");
-    console.log("Connected to DB 🎉");
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.static("public"));
     app.use(express.json());
+    app.set("view engine", "ejs");
 
     app.get("/", (req, res) => {
       //res.sendFile(__dirname + "/index.html");
-
       db.collection("quotes")
         .find()
         .toArray()
         .then((results) => {
+          //console.log(results);
           res.render("index.ejs", { quotes: results });
         })
         .catch((error) => console.error(error));
@@ -34,10 +35,11 @@ MongoClient.connect(connectionString)
         })
         .catch((error) => console.error(error));
     });
+
     app.put("/quotes", (req, res) => {
       quotesCollection
         .findOneAndUpdate(
-          { name: "Saleh" },
+          { name: "Darth Vader" },
           {
             $set: {
               name: req.body.name,
@@ -51,11 +53,11 @@ MongoClient.connect(connectionString)
         .then((result) => {
           res.json("Success");
         })
-        .catch((error) => console.error(error));
+        .catch((error) => console.log(error));
     });
 
     app.listen(3000, () => {
-      console.log("listening on port 3000");
+      console.log("Port running");
     });
   })
   .catch((error) => console.error(error));
