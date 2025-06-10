@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const PORT = 3001;
-
 let phoneBook = [
   {
     id: "1",
@@ -24,8 +23,8 @@ let phoneBook = [
     number: "39-23-6423122",
   },
 ];
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
@@ -35,49 +34,55 @@ app.get("/api/persons", (req, res) => {
 });
 
 app.get("/info", (req, res) => {
-  const currentTime = new Date();
+  const date = new Date();
   res.send(`<p>Phonebook has info for ${phoneBook.length} people</p>
-            <p>${currentTime}</p>
+      <h4>${date}</h4>
     `);
 });
-
 app.get("/api/persons/:id", (req, res) => {
   const id = req.params.id;
-  const person = phoneBook.find((person) => person.id === id);
-  res.json(person);
+  const book = phoneBook.find((book) => book.id === id);
+  if (book) {
+    return res.json(book);
+  }
+  res.status(404).json({ error: "contact not found" });
 });
 
+// Delete an entry
 app.delete("/api/persons/:id", (req, res) => {
   const id = req.params.id;
-  const person = phoneBook.filter((person) => person.id === id);
+  const entry = phoneBook.find((person) => person.id === id);
+
+  if (!entry) {
+    return res.status(404).json({ error: "Entry not found" });
+  }
+  phoneBook = phoneBook.filter((person) => person.id !== id);
   res.status(204).end();
 });
 
+// Adding new entry
 app.post("/api/persons", (req, res) => {
-  const body = req.body;
+  body = req.body;
 
-  // Validation
+  // Check if name or number is missing
   if (!body.name || !body.number) {
-    return res.status(400).json({ error: "Name or Number is missings" });
+    res.status(400).json({ error: "Name or number missing" });
   }
 
-  // Check if name exists
-
-  const nameExists = phoneBook.some((person) => person.name === body.name);
+  // Check if name exixts
+  const nameExists = phoneBook.some((entry) => entry.name === body.name);
   if (nameExists) {
-    return res.status(400).json({ error: "Name Must be Unique" });
+    res.status(400).json({ error: "Name must be unique" });
   }
 
-  // Create newEntry
-  const newPerson = {
-    id: String(Math.floor(Math.random() * 100000)),
-    number: body.number,
+  const newEntry = {
+    id: Math.floor(Math.random() * 10000),
     name: body.name,
+    number: body.number,
   };
-  phoneBook.push(newPerson);
-  res.status(201).json(newPerson);
+  phoneBook = phoneBook.concat(newEntry);
+  res.status(201).json(newEntry);
 });
-
 app.listen(PORT, () => {
-  console.log(`Localhost running on ${PORT}`);
+  console.log(`Server is running at port ${PORT}`);
 });
