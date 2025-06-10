@@ -120,10 +120,22 @@ app.get("/", (req, res) => {
 });
 
 // Return all quotes
-app.get("/quotes", (req, res) => {
+app.get("/api/quotes", (req, res) => {
   res.json(quotes);
 });
 
+// Return a ramdom quote
+app.get("/api/quotes/random", (req, res) => {
+  const random = Math.floor(Math.random() * quotes.length);
+  res.json(quotes[random]);
+});
+
+// Quotes by a  specific author
+app.get("/api/quotes/:author", (req, res) => {
+  const author = req.params.author;
+  const authorQuotes = quotes.filter((quote) => quote.author === author);
+  res.json(authorQuotes);
+});
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT} `);
 });
