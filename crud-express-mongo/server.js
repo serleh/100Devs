@@ -11,6 +11,8 @@ MongoClient.connect(
     const quotesCollection = db.collection("quotes");
     app.set("view engine", "ejs");
     app.use(express.urlencoded({ extended: true }));
+    app.use(express.static("public"));
+    app.use(express.json());
     app.get("/", (req, res) => {
       quotesCollection
         .find()
@@ -24,6 +26,27 @@ MongoClient.connect(
       });
     });
 
+    app.put("/quotes", (req, res) => {
+      quotesCollection
+        .findOneAndUpdate(
+          { name: "Maryam Saleh" },
+          {
+            $set: { name: req.body.name, quote: req.body.quote },
+          },
+          { upsert: true }
+        )
+        .then((result) => {
+          res.json("Success");
+        });
+    });
+    app.delete("/quotes", (req, res) => {
+      quotesCollection.deleteOne({ name: req.body.name }).then((result) => {
+        if (result.deletedCount === 0) {
+          return res.json("No quote to delete");
+        }
+        return res.json(`deleted`);
+      });
+    });
     app.listen(3000, () => {
       console.log("listening on 3000");
     });

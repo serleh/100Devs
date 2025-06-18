@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receiters</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1>Receiters names</h1>
+    <ul>
+      <% reciters.forEach(reciter => { %>
+      <li>
+        <span>
+          <strong><%= reciter.receiterName %></strong> – <%=
+          reciter.receiterLocation %>
+        </span>
+
+        <span
+          ><%= reciter.likes%>
+          <i
+            class="fas fa-heart"
+            style="color: red; margin-left: 10px; cursor: pointer"
+            data-like="<%= reciter.likes %>"
+            data-name="<%= reciter.receiterName %>"
+            data-location="<%= reciter.receiterLocation %>"
+          ></i
+        ></span>
+
+        <span>
+          <i
+            class="fas fa-trash delete-btn"
+            data-name="<%= reciter.receiterName %>"
+            data-location="<%= reciter.receiterLocation %>"
+            style="color: gray; margin-left: 10px; cursor: pointer"
+          ></i
+        ></span>
+      </li>
+      <% }) %>
+    </ul>
+
+    <form action="/receiters" method="post">
+      <input type="text" placeholder="receiter name" name="receiterName" />
+      <input
+        type="text"
+        placeholder="reciter location"
+        name="receiterLocation"
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
