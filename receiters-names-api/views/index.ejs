@@ -15,39 +15,41 @@
       <% reciters.forEach(reciter => { %>
       <li>
         <span>
-          <strong><%= reciter.receiterName %></strong> – <%=
-          reciter.receiterLocation %>
+          <strong><%= reciter.reciterName %></strong> – <%=
+          reciter.reciterLocation %>
         </span>
 
-        <span
-          ><%= reciter.likes%>
+        <span class="like-section">
+          <%= reciter.likes %>
           <i
-            class="fas fa-heart"
+            class="fas fa-heart like-btn"
             style="color: red; margin-left: 10px; cursor: pointer"
+            data-name="<%= reciter.reciterName %>"
+            data-location="<%= reciter.reciterLocation %>"
             data-like="<%= reciter.likes %>"
-            data-name="<%= reciter.receiterName %>"
-            data-location="<%= reciter.receiterLocation %>"
-          ></i
-        ></span>
+            style="margin-left: 10px; cursor: pointer"
+          ></i>
+        </span>
 
         <span>
           <i
             class="fas fa-trash delete-btn"
-            data-name="<%= reciter.receiterName %>"
-            data-location="<%= reciter.receiterLocation %>"
+            data-name="<%= reciter.reciterName %>"
+            data-location="<%= reciter.reciterLocation %>"
             style="color: gray; margin-left: 10px; cursor: pointer"
+            style="margin-left: 10px; cursor: pointer"
           ></i
         ></span>
       </li>
       <% }) %>
     </ul>
-
-    <form action="/receiters" method="post">
-      <input type="text" placeholder="receiter name" name="receiterName" />
+    <h4>Add Reciter:</h4>
+    <form action="/reciters" method="post">
+      <input type="text" placeholder="reciter name" name="reciterName" />
       <input
         type="text"
         placeholder="reciter location"
-        name="receiterLocation"
+        name="reciterLocation"
       />
       <button type="submit">Submit</button>
     </form>

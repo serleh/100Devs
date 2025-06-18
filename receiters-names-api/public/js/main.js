@@ -1,14 +1,13 @@
-const deleteButtons = document.getElementsByClassName("fa-trash");
-const likeButtons = document.getElementsByClassName("fa-heart");
+const deleteButton = document.getElementsByClassName("fa-trash");
+const likeButton = document.getElementsByClassName("fa-heart");
 
-Array.from(deleteButtons).forEach((button) => {
+Array.from(deleteButton).forEach((button) => {
   button.addEventListener("click", (_) => {
-    const rName = button.dataset.name;
-    fetch("/receiters", {
+    fetch("/reciters", {
       method: "delete",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        reciterName: rName,
+        reciterName: button.dataset.name,
       }),
     })
       .then((res) => {
@@ -16,31 +15,25 @@ Array.from(deleteButtons).forEach((button) => {
           return res.json();
         }
       })
-      .then((res) => window.location.reload());
+      .then((res) => {
+        window.location.reload();
+      });
   });
 });
 
-// Like
-
-Array.from(likeButtons).forEach((button) => {
+Array.from(likeButton).forEach((button) => {
   button.addEventListener("click", (_) => {
-    const rName = button.dataset.name;
-    const rLocation = button.dataset.location;
-    const rlike = Number(button.dataset.like);
-
-    fetch("/receiters", {
+    fetch("/reciters", {
       method: "put",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        reciterName: rName,
-        reciterLocation: rLocation,
+        reciterName: button.dataset.name,
+        reciterLocation: button.dataset.location,
       }),
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
+        if (res.ok) return res.json();
       })
-      .then((res) => window.location.reload());
+      .then(location.reload());
   });
 });
