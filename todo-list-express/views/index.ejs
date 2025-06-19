@@ -8,22 +8,41 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <h1>My TodoList</h1>
-    <ul class="todo-list">
-      <% todos.forEach(function(todo) { %>
-      <li class="todo-item">
-        <span><%= todo.todo %></span>
-        <!-- Font Awesome trash icon for delete -->
-        <i class="fas fa-trash delete-icon"></i>
+    <ul class="todoItems">
+      <% todos.forEach((todo) => { %>
+      <li class="item">
+        <% if (todo.completed === true) { %>
+        <span
+          class="completed"
+          style="cursor: pointer"
+          data-todo="<%= todo.thing %>"
+        >
+          <%= todo.thing %>
+        </span>
+
+        <% } else { %>
+        <span style="cursor: pointer" data-todo="<%= todo.thing %>"
+          ><strong><%= todo.thing %></strong></span
+        >
+        <% } %>
+        <span
+          class="fas fa-trash"
+          style="cursor: pointer"
+          data-todo="<%= todo.thing %>"
+        ></span>
       </li>
-      <% }); %>
+      <% }) %>
     </ul>
-    <h4>Left to do: 0</h4>
+
+    <h4>Left to do: <%=left%></h4>
     <form action="/todo" method="post">
       <input type="text" name="todo" />
       <button type="submit">Add</button>
     </form>
+    <script src="/js/main.js"></script>
   </body>
 </html>
