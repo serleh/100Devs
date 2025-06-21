@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Todo MVC</h1>
+
+    <ul>
+      <% items.forEach(item=>{%>
+      <li class="item">
+        <% if(item.completed === true){%>
+        <span class="completed" data-itemtext="<%=item.thing%>"
+          ><%=item.thing%></span
+        >
+
+        <% }else{%>
+        <span data-itemtext="<%=item.thing%>"><%=item.thing%></span>
+
+        <%}%>
+        <span
+          data-itemtext="<%=item.thing%>"
+          style="cursor: pointer"
+          class="del"
+          >🗑</span
+        >
+      </li>
+
+      <%})%>
+      <h2>left to do:<%=left%></h2>
+      <form action="/todo" method="post">
+        <input type="text" name="todoItem" placeholder="Add todo" />
+        <button type="submit">Add</button>
+      </form>
+    </ul>
+    <script src="/main.js"></script>
+  </body>
+</html>
