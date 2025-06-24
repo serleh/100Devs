@@ -1,15 +1,16 @@
-const deleteBtn = document.querySelectorAll(".del");
-const markComplete = document.querySelectorAll(".item span");
-const markUncomplete = document.querySelectorAll(".item span.completed");
+deleteBtn = document.querySelectorAll(".del");
+markCompletedBtn = document.querySelectorAll(".item span");
+markInCompletedBtn = document.querySelectorAll(".item span.completed");
 
-// Delete A todo
 Array.from(deleteBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
+    const todoId = btn.dataset.id;
+
     fetch("/deleteTodo", {
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        itemFromJs: btn.dataset.itemtext,
+        todoIdFromJSFile: todoId,
       }),
     })
       .then((res) => {
@@ -19,15 +20,16 @@ Array.from(deleteBtn).forEach((btn) => {
   });
 });
 
-// Mark as Complete
-
-Array.from(markComplete).forEach((btn) => {
+// Mark Complete
+Array.from(markCompletedBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
-    fetch("/markComplete", {
+    const todoId = btn.dataset.id;
+
+    fetch("/markCompleted", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        itemFromJs: btn.dataset.itemtext,
+        todoIdFromJSFile: todoId,
       }),
     })
       .then((res) => {
@@ -37,15 +39,17 @@ Array.from(markComplete).forEach((btn) => {
   });
 });
 
-// Mark as UnComplete
+// Mark Incompleted
 
-Array.from(markUncomplete).forEach((btn) => {
+Array.from(markInCompletedBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
-    fetch("/markUnComplete", {
+    const todoId = btn.dataset.id;
+
+    fetch("/markInCompleted", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        itemFromJs: btn.dataset.itemtext,
+        todoIdFromJSFile: todoId,
       }),
     })
       .then((res) => {

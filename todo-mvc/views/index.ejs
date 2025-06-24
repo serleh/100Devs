@@ -4,38 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Todo MVC</h1>
+    <h1>Todo</h1>
 
     <ul>
-      <% items.forEach(item=>{%>
+      <% todos.forEach( el => { %>
       <li class="item">
-        <% if(item.completed === true){%>
-        <span class="completed" data-itemtext="<%=item.thing%>"
-          ><%=item.thing%></span
-        >
+        <%if(el.completed === true){%>
+        <span class="completed" data-id="<%= el._id %>"><%= el.todo %>.</span>
 
         <% }else{%>
-        <span data-itemtext="<%=item.thing%>"><%=item.thing%></span>
+        <span data-id="<%= el._id %>"><%= el.todo %>.</span>
 
-        <%}%>
+        <% }%>
+
         <span
-          data-itemtext="<%=item.thing%>"
-          style="cursor: pointer"
           class="del"
-          >🗑</span
+          style="cursor: pointer; color: red"
+          data-id="<%= el._id %>"
         >
+          X
+        </span>
       </li>
-
-      <%})%>
-      <h2>left to do:<%=left%></h2>
-      <form action="/todo" method="post">
-        <input type="text" name="todoItem" placeholder="Add todo" />
-        <button type="submit">Add</button>
-      </form>
+      <% }) %>
     </ul>
+    <h2>Things left todo: <%=left%></h2>
+    <form action="/createTodo" method="post">
+      <input type="text" placeholder="Enter Todo Item" name="todoItem" />
+      <button type="submit">Submit</button>
+    </form>
     <script src="/main.js"></script>
   </body>
 </html>
