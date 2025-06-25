@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Reciters</h1>
+    <ul>
+      <% reciters.forEach(reciter => { %>
+      <li>
+        <span><strong><%= reciter.reciterName %> --- </strong></span>
+        <span><%= reciter.reciterLocation %></span>
+
+        <!-- Like Button with all data attributes -->
+        <span
+          class="likes"
+          data-name="<%= reciter.reciterName %>"
+          data-location="<%= reciter.reciterLocation %>"
+          data-like="<%= reciter.likes %>"
+          style="cursor: pointer; margin: 10px"
+        >
+          <%= reciter.likes %> ❤️
+        </span>
+
+        <!-- Delete Button -->
+        <span data-id="<%= reciter._id %>" class="del" style="cursor: pointer"
+          >🗑</span
+        >
+      </li>
+      <% }) %>
+    </ul>
+
+    <form action="/reciters" method="post">
+      <input type="text" name="reciterName" placeholder="Reciter name" />
+      <input
+        type="text"
+        name="reciterLocation"
+        placeholder="Reciter Location"
+      />
+      <button type="submit">Add</button>
+    </form>
+    <script src="/main.js"></script>
+  </body>
+</html>
