@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const homeRoutes = require("./routes/home");
 const todoRoutes = require("./routes/todos");
 const connectDB = require("./config/database");
 
@@ -14,7 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Routes middleware
-app.use("/", todoRoutes);
+app.use("/", homeRoutes);
+app.use("/todos", todoRoutes);
 
 app.listen(3000, () => {
   console.log("Server running");

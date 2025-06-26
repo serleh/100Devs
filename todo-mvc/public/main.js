@@ -6,7 +6,7 @@ Array.from(deleteBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
     const todoId = btn.dataset.id;
 
-    fetch("/deleteTodo", {
+    fetch("todos/deleteTodo", {
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -25,7 +25,7 @@ Array.from(markCompletedBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
     const todoId = btn.dataset.id;
 
-    fetch("/markCompleted", {
+    fetch("todos/markCompleted", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -45,7 +45,7 @@ Array.from(markInCompletedBtn).forEach((btn) => {
   btn.addEventListener("click", (_) => {
     const todoId = btn.dataset.id;
 
-    fetch("/markInCompleted", {
+    fetch("todos/markInCompleted", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
