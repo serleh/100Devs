@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <h1>Todo</h1>
+
+    <ul>
+      <% todos.forEach( el => { %>
+      <li class="item">
+        <%if(el.completed === true){%>
+        <span class="completed" data-id="<%= el._id %>"><%= el.todo %>.</span>
+
+        <% }else{%>
+        <span data-id="<%= el._id %>"><%= el.todo %>.</span>
+
+        <% }%>
+
+        <span
+          class="del"
+          style="cursor: pointer; color: red"
+          data-id="<%= el._id %>"
+        >
+          X
+        </span>
+      </li>
+      <% }) %>
+    </ul>
+    <h2>Things left todo: <%=left%></h2>
+    <form action="/todos/createTodo" method="post">
+      <input type="text" name="todoItem" />
+      <button>Add</button>
+    </form>
+    <a href="/logout">logout</a>
+  </body>
+</html>
