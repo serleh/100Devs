@@ -3,10 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Reciters App</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <a href="/logout">Logout</a>
-    <h1>You will see the reciters you added here soon!!!!</h1>
+    <a href="/logout" class="logout-btn">Logout</a>
+
+    <h1>Quran Reciters 📖</h1>
+
+    <form action="/reciters/addReciter" method="POST">
+      <input type="text" name="reciterName" placeholder="Name" required />
+      <input
+        type="text"
+        name="reciterLocation"
+        placeholder="Location"
+        required
+      />
+      <button type="submit">Add</button>
+    </form>
+    <ul>
+      <% reciters.forEach((reciter) => { %>
+      <li>
+        <span
+          class="likes"
+          data-name="<%= reciter.reciterName %>"
+          data-location="<%= reciter.reciterLocation %>"
+        >
+          ❤️ <%= reciter.likes %>
+        </span>
+        <span
+          ><strong><%= reciter.reciterName %></strong> — <%=
+          reciter.reciterLocation %></span
+        >
+        <span class="del" data-id="<%= reciter._id %>">🗑</span>
+      </li>
+      <% }) %>
+    </ul>
+
+    <script src="/main.js"></script>
   </body>
 </html>
