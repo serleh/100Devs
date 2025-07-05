@@ -74,3 +74,16 @@ li {
 .logout-btn:hover {
   background: darkred;
 }
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.welcome {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}

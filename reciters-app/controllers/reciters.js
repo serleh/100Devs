@@ -1,15 +1,21 @@
 const Reciters = require("../models/Reciter");
+const User = require("../models/User");
 
 module.exports = {
   getReciters: async (req, res) => {
     const userId = req.session.userId;
+
     try {
+      const user = await User.findById(userId);
       const recitersList = await Reciters.find({ user: userId }).sort({
         likes: -1,
       });
-      res.render("reciters.ejs", { reciters: recitersList });
+      res.render("reciters.ejs", {
+        reciters: recitersList,
+        user,
+      });
     } catch (err) {
-      console.log(error);
+      console.log(err);
     }
   },
   addReciters: async (req, res) => {
