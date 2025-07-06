@@ -52,3 +52,23 @@
 .nav-links.active {
   display: flex;
 }
+
+@media (min-width: 768px) {
+  .toggle-btn {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: none;
+    width: auto;
+  }
+  .nav-links li {
+    border: none;
+  }
+
+  .nav-links li a {
+    padding: 0 15px;
+  }
+}
