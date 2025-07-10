@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cloudinary Upload</title>
+  </head>
+  <body>
+    <h1>Upload User</h1>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+      <input name="name" type="text" placeholder="Name" required /><br />
+      <input name="address" type="text" placeholder="Address" required /><br />
+      <input name="image" type="file" required /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <h2>Users</h2>
+    <% users.forEach(user => { %>
+    <div>
+      <h3><%= user.name %> - <%= user.address %></h3>
+      <img src="<%= user.image %>" width="200" />
+    </div>
+    <% }) %>
+  </body>
+</html>
